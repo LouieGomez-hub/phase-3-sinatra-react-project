@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get '/superheros' do
-    superheros = Superheros.all
+    superheros = Superheros.all.order(:name)
     superheros.to_json
   end
 
