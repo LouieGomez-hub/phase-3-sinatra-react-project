@@ -12,6 +12,14 @@ class ApplicationController < Sinatra::Base
     superhero.to_json(include: :comments)
   end
 
+  post '/superhero' do
+    superhero = Superhero.create(
+      name: params[:name],
+      power: params[:power]
+    )
+    superhero.to_json
+  end
+
   get '/comments' do
     comments = Comments.all
     comments.to_json
