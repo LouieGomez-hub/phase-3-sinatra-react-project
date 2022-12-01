@@ -9,7 +9,7 @@ puts "🌱 Seeding data..."
 
     rand(1..5).times do
         Comment.create(
-            text: Faker::Lorem.sentence
+            text: Faker::Lorem.sentence,
             superhero_id: superhero.id
         )
     end
