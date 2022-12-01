@@ -1,6 +1,5 @@
 puts "🌱 Seeding data..."
 
-# Seed your database here
 100.times do
     superhero = Superhero.create(
         name: Faker::Superhero.name,
