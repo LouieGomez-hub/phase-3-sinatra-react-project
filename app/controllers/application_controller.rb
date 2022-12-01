@@ -20,6 +20,14 @@ class ApplicationController < Sinatra::Base
     superhero.to_json
   end
 
+  patch '/superhero/:id' do
+    superhero = Superhero.find(params[:id])
+    superhero.update(
+      power: params[:power]
+    )
+    superhero.to_json
+  end
+
   get '/comments' do
     comments = Comments.all
     comments.to_json
@@ -40,5 +48,6 @@ class ApplicationController < Sinatra::Base
     )
     comment.to_json
   end
+
 
 end
