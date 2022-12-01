@@ -1,7 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
-  # Add your routes here
+
   get '/superheros' do
     superheros = Superheros.all.order(:name)
     superheros.to_json
@@ -31,6 +30,11 @@ class ApplicationController < Sinatra::Base
   get '/comments' do
     comments = Comments.all
     comments.to_json
+  end
+
+  get 'superhero/:id/comments' do
+    superhero = Superhero.find(params[:id])
+    superhero.to_json(only: [], include: :comments)
   end
 
   post '/comments' do
