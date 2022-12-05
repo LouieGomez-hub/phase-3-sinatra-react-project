@@ -1,9 +1,13 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
+  get "/" do
+    { message: "Good luck with your project!" }.to_json
+  end
+
   get '/superheros' do
-    superheros = Superheros.all.order(:name)
-    superheros.to_json
+    superhero = Superhero.all
+    superhero.to_json
   end
 
   get '/superheros/:id' do
