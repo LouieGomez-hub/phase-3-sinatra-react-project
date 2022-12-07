@@ -32,11 +32,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/comments' do
-    comments = Comments.all
-    comments.to_json
+    comment = Comment.all
+    comment.to_json
   end
 
-  get 'superhero/:id/comments' do
+  get 'superheros/:id/comments' do
     superhero = Superhero.find(params[:id])
     superhero.to_json(only: [], include: :comments)
   end
