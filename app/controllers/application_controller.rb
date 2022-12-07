@@ -31,6 +31,12 @@ class ApplicationController < Sinatra::Base
     superhero.to_json
   end
 
+  delete '/superheros/:id' do
+    superhero = Superhero.find(params[:id])
+    superhero.destroy
+    superhero.to_json
+  end
+
   get '/comments' do
     comments = Comment.all
     comments.to_json
