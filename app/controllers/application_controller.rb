@@ -32,8 +32,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/comments' do
-    comment = Comment.all
-    comment.to_json
+    comments = Comment.all
+    comments.to_json
   end
 
   get 'superheros/:id/comments' do
