@@ -7,12 +7,12 @@ class ApplicationController < Sinatra::Base
 
   get '/superheros' do
     superhero = Superhero.all
-    superhero.to_json
+    superhero.to_json(include: :comments)
   end
 
   get '/superheros/:id' do
     superhero = Superhero.find(params[:id])
-    superhero.to_json(include: :comments)
+    superhero.to_json
   end
 
   post '/superhero' do
