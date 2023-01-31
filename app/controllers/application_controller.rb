@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
     superhero.to_json
   end
 
-  post '/superhero' do
+  post '/superheros' do
     superhero = Superhero.create(
       name: params[:name],
       power: params[:power]
