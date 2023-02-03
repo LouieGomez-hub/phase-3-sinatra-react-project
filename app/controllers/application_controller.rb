@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     superhero.to_json
   end
 
-  patch '/superhero/:id' do
+  patch '/superheros/:id' do
     superhero = Superhero.find(params[:id])
     superhero.update(
       power: params[:power]
